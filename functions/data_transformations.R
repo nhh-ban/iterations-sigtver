@@ -1,3 +1,4 @@
+# function transforming data from vegvesenet to a data frame
 transform_metadata_to_df <-
   function(data){
     data[[1]] %>%  
@@ -7,4 +8,11 @@ transform_metadata_to_df <-
       mutate(latestData = as_datetime(latestData)) %>% 
       unnest_wider(location) %>% 
       unnest_wider(latLon)
+  }
+
+
+to_iso8601 <-
+  function(date_time, offset){
+    iso8601(date_time+days(offset)) %>% 
+      paste0("Z")
   }
