@@ -27,6 +27,7 @@ transform_volumes <-
       unnest_wider(node) %>% 
       unnest_wider(total) %>% 
       unnest_wider(volumeNumbers) %>%
+      mutate(from = as_datetime(from)) %>% 
       select(from, volume)
   }
   
