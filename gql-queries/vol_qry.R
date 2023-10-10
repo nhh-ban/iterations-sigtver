@@ -1,6 +1,6 @@
 vol_qry <-
   function(id, from, to){
-    glue(
+    glue::glue(
       '
         {
           trafficData(trafficRegistrationPointId: "<<id>>") {
